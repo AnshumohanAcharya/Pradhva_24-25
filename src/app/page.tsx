@@ -1,0 +1,147 @@
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Mail, Phone, Trophy, Users } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+interface ContactCardProps {
+  name: string;
+  role: string;
+  email: string;
+  phone: string;
+}
+
+const ContactCard = ({ name, role, email, phone }: ContactCardProps) => (
+  <Card className="bg-gradient-to-br from-yellow-600 to-orange-600 border-none hover:shadow-lg transition-shadow duration-300">
+    <CardHeader>
+      <CardTitle className="text-black font-bold">{name}</CardTitle>
+      <p className="text-gray-800 font-medium">{role}</p>
+    </CardHeader>
+    <CardContent>
+      <p className="flex items-center text-black"><Mail className="mr-2" size={16} /> {email}</p>
+      {phone && <p className="flex items-center text-black mt-2"><Phone className="mr-2" size={16} /> {phone}</p>}
+    </CardContent>
+  </Card>
+);
+
+const HomePage = () => {
+  return (
+    <div className="min-h-screen bg-black text-white font-sans">
+      {/* Header */}
+      <header className="py-20 text-center bg-gradient-to-b from-yellow-500 via-orange-500 to-red-600">
+        <Image src="/pradhva-logo.png" alt="Pradhva Logo" width={150} height={150} className="mx-auto mb-8 rounded-full" />
+        <h1 className="text-7xl font-bold mb-4 text-black">PRADHVA</h1>
+        <p className="text-2xl mb-8 text-black">IIIT Kottayam&apos;s Annual Sports Fest</p>
+        <Link href={"/registrations"}>
+        <Button type='button' size="lg" className="bg-black text-yellow-500 hover:bg-gray-900 hover:text-yellow-400 transition-all duration-300 shadow-lg font-semibold">
+          Register Now
+        </Button>
+        </Link>
+      </header>
+
+      {/* Navigation */}
+      <nav className="bg-yellow-500 py-4 sticky top-0 z-10">
+        <ul className="flex justify-center space-x-8">
+          <li><a href="#about" className="text-black hover:text-white transition-colors font-medium">About</a></li>
+          <li><a href="#events" className="text-black hover:text-white transition-colors font-medium">Events</a></li>
+          {/* <li><a href="#schedule" className="text-black hover:text-white transition-colors font-medium">Schedule</a></li> */}
+          <li><a href="#contact" className="text-black hover:text-white transition-colors font-medium">Contact</a></li>
+        </ul>
+      </nav>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-16">
+        {/* About Section */}
+        <section id="about" className="mb-20">
+          <h2 className="text-5xl font-bold mb-6 text-yellow-500">About Pradhva</h2>
+          <p className="text-xl mb-4 text-gray-300">
+            Pradhva is IIIT Kottayam&apos;s annual sports fest, where students participate in a wide range of sports events.
+            It serves as a platform for showcasing athletic talent and fosters competitive spirit among participants.
+          </p>
+          <p className="text-xl text-gray-300">
+            The event includes multiple games like badminton, football, volleyball, athletics, and many others,
+            giving students the opportunity to represent their skills and passion for sports.
+          </p>
+        </section>
+
+        {/* Event Highlights */}
+        <section id="events" className="mb-20">
+          <h2 className="text-5xl font-bold mb-10 text-yellow-500">Event Highlights</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="bg-gradient-to-br from-yellow-600 to-orange-600 border-none hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="flex items-center text-black font-bold">
+                  <Trophy className="mr-2" /> Competitions
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-black">Participate in various sports competitions and showcase your skills.</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-gradient-to-br from-orange-600 to-red-600 border-none hover:shadow-lg transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="flex items-center text-black font-bold">
+                  <Users className="mr-2" /> Team Building
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-black">Foster teamwork and build lasting relationships with fellow athletes.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section id="contact" className="mb-20">
+          <h2 className="text-5xl font-bold mb-10 text-yellow-500">Contact Us</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {/* biome-ignore lint/a11y/useValidAriaRole: <explanation> */}
+            <ContactCard
+              name="Dr. A Ananth"
+              role="Faculty-In-Charge"
+              email="ananth@iiitkottayam.ac.in"
+              phone=""
+            />
+            {/* biome-ignore lint/a11y/useValidAriaRole: <explanation> */}
+            <ContactCard
+              name="Ms Priya Mol K"
+              role="Physical Education Instructor"
+              email="Pet@iiitkottayam.ac.in"
+              phone=""
+            />
+            {/* biome-ignore lint/a11y/useValidAriaRole: <explanation> */}
+            <ContactCard
+              name="Ram Singh Nayak Tejavath"
+              role="Sportec-Club Mentor"
+              email="ramsingh22bcd56@iiitkottayam.ac.in"
+              phone="9346266283"
+            />
+            {/* biome-ignore lint/a11y/useValidAriaRole: <explanation> */}
+            <ContactCard
+              name="Vyshnavi Reddy Battula"
+              role="Sportec-Club Mentor"
+              email="vyshnavi22bcs133@iiitkottayam.ac.in"
+              phone="6366542233"
+            />
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="text-center bg-gradient-to-r from-yellow-500 via-orange-500 to-red-600 p-16 rounded-lg shadow-xl">
+          <h2 className="text-5xl font-bold mb-6 text-black">Ready to Participate?</h2>
+          <Link href={"/registrations"}>
+          <Button size="lg" className="bg-black text-yellow-500 hover:bg-gray-900 hover:text-yellow-400 transition-all duration-300 shadow-lg font-semibold">
+            Join Pradhva 2024
+          </Button>
+          </Link>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-yellow-500 py-8 text-center text-black mt-20">
+        <p>&copy; 2024 Pradhva - IIIT Kottayam Annual Sports Fest. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+};
+
+export default HomePage;
