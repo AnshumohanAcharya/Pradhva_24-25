@@ -3,7 +3,29 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-const sportsData = {
+const sportsData: {
+    [key: string]: {
+        icon: string;
+        rules: string[];
+        bgImage: string;
+        formLink?: string;
+        singlesFormLink?: string;
+        doublesFormLink?: string;
+    }
+} = {
+    'Cricket': {
+        icon: '🏏',
+        rules: [
+            "Spot registrations are not allowed.",
+            "Each team must have at least 5 bowlers; failure to comply will result in disqualification.",
+            "All matches will follow a knockout format with 10 overs per match, and each bowler may bowl a maximum of 2 overs.",
+            "Players from a knocked-out team are not allowed to join another team.",
+            "No more than 15 players are allowed to represent a single batch or team.",
+            "League matches will be held on our college ground, while the semi-finals and final matches will take place on an external ground outside the campus.",
+        ],
+        formLink: 'https://forms.gle/HioiTZFoVskaBsQD6',
+        bgImage: '/images/cricket-bg.jpg'
+    },
     'Athletics': {
         icon: '🏃',
         rules: [
@@ -15,32 +37,8 @@ const sportsData = {
             "Athletes exhibiting unsportsmanlike conduct, including using unfair methods or disputing with officials, will face disqualification.",
             "All athletes must arrive at their event locations no later than 15 minutes before the event starts.",
         ],
-        formLink: 'https://forms.google.com/athletics-registration',
+        formLink: 'https://forms.gle/DSc1uiXP94qFGxYd9',
         bgImage: '/images/athletics-bg.jpg'
-    },
-    'Cricket': {
-        icon: '🏏',
-        rules: [
-            "Spot registrations are not allowed.",
-            "Each team must have at least 5 bowlers; failure to comply will result in disqualification.",
-            "All matches will follow a knockout format with 10 overs per match, and each bowler may bowl a maximum of 2 overs.",
-            "Players from a knocked-out team are not allowed to join another team.",
-            "No more than 15 players are allowed to represent a single batch or team.",
-            "League matches will be held on our college ground, while the semi-finals and final matches will take place on an external ground outside the campus.",
-        ],
-        formLink: 'https://forms.google.com/cricket-registration',
-        bgImage: '/images/cricket-bg.jpg'
-    },
-    'Football': {
-        icon: '⚽',
-        rules: [
-            "Spot registrations are not permitted.",
-            "Each match will last for 30 minutes, consisting of two 15-minute halves with a 5-minute break in between.",
-            "All matches will follow a knockout format. If a match ends in a draw, extra time will be given, followed by a penalty shootout to decide the winner.",
-            "Each team must have no more than 16 members."
-        ],
-        formLink: 'https://forms.google.com/football-registration',
-        bgImage: '/images/football-bg.jpg'
     },
     'Volleyball': {
         icon: '🏐',
@@ -52,19 +50,8 @@ const sportsData = {
             "Semi-final matches will also be played in a best of 3 sets format, but each set will be played to 25 points.",
             "Final matches will be played in a best of 5 sets format, with each set played to 25 points."
         ],
-        formLink: 'https://forms.google.com/volleyball-registration',
+        formLink: 'https://forms.gle/1i5LoSvnKQ625DA99',
         bgImage: '/images/volleyball-bg.jpg'
-    },
-    'Basketball': {
-        icon: '🏀',
-        rules: [
-            "Spot registrations are not permitted.",
-            "A maximum of 12 players may represent any batch or team.",
-            "All matches will follow a knockout format.",
-            "Each match will have a duration of 20 minutes, divided into four 5-minute quarters.",
-        ],
-        formLink: 'https://forms.google.com/basketball-registration',
-        bgImage: '/images/basketball-bg.jpg'
     },
     'Badminton': {
         icon: '🏸',
@@ -75,8 +62,20 @@ const sportsData = {
             "Semi-final and final matches will also be played in a best of 3 sets format, but each set will be played to 21 points.",
             "The same scoring rules apply to doubles matches as well."
         ],
-        formLink: 'https://forms.google.com/badminton-registration',
+        singlesFormLink: 'https://forms.gle/Pj5gd9fbwyyzz43PA',
+        doublesFormLink: 'https://forms.gle/ehEa15DWeM6zaY2f6',
         bgImage: '/images/badminton-bg.jpg'
+    },
+    'Football': {
+        icon: '⚽',
+        rules: [
+            "Spot registrations are not permitted.",
+            "Each match will last for 30 minutes, consisting of two 15-minute halves with a 5-minute break in between.",
+            "All matches will follow a knockout format. If a match ends in a draw, extra time will be given, followed by a penalty shootout to decide the winner.",
+            "Each team must have no more than 16 members."
+        ],
+        formLink: 'https://forms.gle/sv3Xc3jTYZkBBD6YA',
+        bgImage: '/images/football-bg.jpg'
     },
     'Throw Ball': {
         icon: '🤾‍♀️',
@@ -85,8 +84,19 @@ const sportsData = {
             "Each team must submit a list of players, with a maximum of 12 players allowed.",
             "The tournament will be conducted on a knockout basis, with all matches played in a best of 3 sets format, using 15 rally points per set.",
         ],
-        formLink: 'https://forms.google.com/throw-ball-registration',
+        formLink: 'https://forms.gle/DJ4PBFUrfJfgB8Y46',
         bgImage: '/images/throw-ball-bg.jpg'
+    },
+    'Basketball': {
+        icon: '🏀',
+        rules: [
+            "Spot registrations are not permitted.",
+            "A maximum of 12 players may represent any batch or team.",
+            "All matches will follow a knockout format.",
+            "Each match will have a duration of 20 minutes, divided into four 5-minute quarters.",
+        ],
+        formLink: 'https://forms.gle/AZcESFzhkYav3s469',
+        bgImage: '/images/basketball-bg.jpg'
     },
     'Indoor Games': {
         icon: '🏓♟️🎱',
@@ -99,7 +109,7 @@ const sportsData = {
             "Quarter-final, semi-final, and final matches of Table Tennis will be conducted in a best of 3 sets format, with each set played to 11 points.",
             "The same scoring rules apply to doubles matches in Table Tennis as well."
         ],
-        formLink: 'https://forms.google.com/board-games-registration',
+        formLink: 'https://forms.gle/ukzP298AtBzZeVY37',
         bgImage: '/images/board-games-bg.jpg'
     }
 };
@@ -141,11 +151,27 @@ const page = ({ params }: { params: { sport: string } }) => {
                                 <li key={rule} className="text-white/90">{rule}</li>
                             ))}
                         </ul>
-                        <Link href={sportInfo.formLink}>
+
+                        {sportInfo.singlesFormLink &&
+                            <Link href={sportInfo.singlesFormLink}>
+                                <Button className="w-full bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-orange-600 hover:to-red-600 text-black font-bold py-4 rounded-full text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg mb-4">
+                                    Register for Singles
+                                </Button>
+                            </Link>}
+
+                        {sportInfo.doublesFormLink &&
+                            <Link href={sportInfo.doublesFormLink}>
+                                <Button className="w-full bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-orange-600 hover:to-red-600 text-black font-bold py-4 rounded-full text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                                    Register for Doubles
+                                </Button>
+                            </Link>
+                        }
+
+                        {sportInfo.formLink && <Link href={sportInfo.formLink}>
                             <Button className="w-full bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-orange-600 hover:to-red-600 text-black font-bold py-4 rounded-full text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
                                 Register for {sport}
                             </Button>
-                        </Link>
+                        </Link>}
                     </CardContent>
                 </Card>
             </div>

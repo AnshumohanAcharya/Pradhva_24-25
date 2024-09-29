@@ -9,20 +9,35 @@ interface ContactCardProps {
   role: string;
   email: string;
   phone: string;
+  image: string;
 }
 
-const ContactCard = ({ name, role, email, phone }: ContactCardProps) => (
-  <Card className="bg-gradient-to-br from-yellow-600 to-orange-600 border-none hover:shadow-lg transition-shadow duration-300">
-    <CardHeader>
+const ContactCard = ({ name, role, email, phone, image }: ContactCardProps) => (
+  <Card className="bg-gradient-to-br from-yellow-600 to-orange-600 border-none hover:shadow-lg transition-shadow duration-300 flex flex-col items-center gap-y-2">
+    <Image
+      src={image}
+      alt={`${name}'s picture`}
+      width={150}
+      height={80}
+      className="rounded-full mt-4"
+    />
+    <CardHeader className='items-center'>
       <CardTitle className="text-black font-bold">{name}</CardTitle>
       <p className="text-gray-800 font-medium">{role}</p>
     </CardHeader>
     <CardContent>
-      <p className="flex items-center text-black"><Mail className="mr-2" size={16} /> {email}</p>
-      {phone && <p className="flex items-center text-black mt-2"><Phone className="mr-2" size={16} /> {phone}</p>}
+      <p className="flex items-center text-black">
+        <Mail className="mr-2" size={16} /> {email}
+      </p>
+      {phone && (
+        <p className="flex items-center text-black mt-2">
+          <Phone className="mr-2" size={16} /> {phone}
+        </p>
+      )}
     </CardContent>
   </Card>
 );
+
 
 const HomePage = () => {
   return (
@@ -33,9 +48,9 @@ const HomePage = () => {
         <h1 className="text-7xl font-bold mb-4 text-black">PRADHVA</h1>
         <p className="text-2xl mb-8 text-black">IIIT Kottayam&apos;s Annual Sports Fest</p>
         <Link href={"/registrations"}>
-        <Button type='button' size="lg" className="bg-black text-yellow-500 hover:bg-gray-900 hover:text-yellow-400 transition-all duration-300 shadow-lg font-semibold">
-          Register Now
-        </Button>
+          <Button type='button' size="lg" className="bg-black text-yellow-500 hover:bg-gray-900 hover:text-yellow-400 transition-all duration-300 shadow-lg font-semibold">
+            Register Now
+          </Button>
         </Link>
       </header>
 
@@ -100,13 +115,16 @@ const HomePage = () => {
               role="Faculty-In-Charge"
               email="ananth@iiitkottayam.ac.in"
               phone=""
+              image="/Dr_Ananth_pic_2.jpg"
             />
+
             {/* biome-ignore lint/a11y/useValidAriaRole: <explanation> */}
             <ContactCard
               name="Ms Priya Mol K"
               role="Physical Education Instructor"
               email="Pet@iiitkottayam.ac.in"
               phone=""
+              image="/Priya_pic.jpg"
             />
             {/* biome-ignore lint/a11y/useValidAriaRole: <explanation> */}
             <ContactCard
@@ -114,6 +132,7 @@ const HomePage = () => {
               role="Sportec-Club Mentor"
               email="ramsingh22bcd56@iiitkottayam.ac.in"
               phone="9346266283"
+              image="/ram_pic_3.jpg" // Update image path
             />
             {/* biome-ignore lint/a11y/useValidAriaRole: <explanation> */}
             <ContactCard
@@ -121,6 +140,7 @@ const HomePage = () => {
               role="Sportec-Club Mentor"
               email="vyshnavi22bcs133@iiitkottayam.ac.in"
               phone="6366542233"
+              image="/vyshnavi_pic.jpg" // Update image path
             />
           </div>
         </section>
@@ -129,9 +149,9 @@ const HomePage = () => {
         <section className="text-center bg-gradient-to-r from-yellow-500 via-orange-500 to-red-600 p-16 rounded-lg shadow-xl">
           <h2 className="text-5xl font-bold mb-6 text-black">Ready to Participate?</h2>
           <Link href={"/registrations"}>
-          <Button size="lg" className="bg-black text-yellow-500 hover:bg-gray-900 hover:text-yellow-400 transition-all duration-300 shadow-lg font-semibold">
-            Join Pradhva 2024
-          </Button>
+            <Button size="lg" className="bg-black text-yellow-500 hover:bg-gray-900 hover:text-yellow-400 transition-all duration-300 shadow-lg font-semibold">
+              Join Pradhva 2024
+            </Button>
           </Link>
         </section>
       </main>

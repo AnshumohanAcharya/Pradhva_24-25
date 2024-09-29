@@ -2,15 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Flame } from 'lucide-react';
 import Link from "next/link";
+import Marquee from "react-fast-marquee";
 
 const sportsData = [
-    { name: 'Athletics', icon: '🏃' },
     { name: 'Cricket', icon: '🏏' },
-    { name: 'Football', icon: '⚽' },
+    { name: 'Athletics', icon: '🏃' },
     { name: 'Volleyball', icon: '🏐' },
-    { name: 'Basketball', icon: '🏀' },
     { name: 'Badminton', icon: '🏸' },
+    { name: 'Football', icon: '⚽' },
     { name: 'Throw Ball', icon: '🤾‍♀️' },
+    { name: 'Basketball', icon: '🏀' },
     { name: 'Indoor Games', icon: '♟️' },
 ];
 
@@ -22,6 +23,14 @@ const page = () => {
                     <h1 className="text-4xl font-extrabold text-black mb-4 drop-shadow-lg">Registrations</h1>
                     <p className="text-xl font-bold text-black drop-shadow-md">Choose your sport and unleash your potential!</p>
                 </header>
+
+                <div className="text-center mb-6 rounded-md border border-dashed border-red-800">
+                    <Marquee direction="left">
+                        <p className="text-lg font-semibold text-red-900">
+                            <strong>Note:</strong> Each player may participate in a maximum of two sports from the following options: Football, Basketball, Cricket, or Volleyball.
+                        </p>
+                    </Marquee>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                     {sportsData.map((sport) => (
