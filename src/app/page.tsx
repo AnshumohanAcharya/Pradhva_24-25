@@ -59,6 +59,7 @@ const HomePage = () => {
         <ul className="flex justify-center space-x-8">
           <li><a href="#about" className="text-black hover:text-white transition-colors font-medium">About</a></li>
           <li><a href="#events" className="text-black hover:text-white transition-colors font-medium">Events</a></li>
+          <li><a href="/rules" className="text-black hover:text-white transition-colors font-medium">Rules</a></li>
           {/* <li><a href="#schedule" className="text-black hover:text-white transition-colors font-medium">Schedule</a></li> */}
           <li><a href="#contact" className="text-black hover:text-white transition-colors font-medium">Contact</a></li>
         </ul>
@@ -81,26 +82,93 @@ const HomePage = () => {
 
         {/* Event Highlights */}
         <section id="events" className="mb-20">
-          <h2 className="text-5xl font-bold mb-10 text-yellow-500">Event Highlights</h2>
+          <h2 className="text-5xl font-bold mb-10 text-yellow-500">Events</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Card className="bg-gradient-to-br from-yellow-600 to-orange-600 border-none hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center text-black font-bold">
-                  <Trophy className="mr-2" /> Competitions
+                  <Trophy className="mr-2" /> Student Events
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-black">Participate in various sports competitions and showcase your skills.</p>
+                <div className="text-black">
+                  <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
+                    {/* Column 1 */}
+                    <div>
+                      <strong className="block text-lg mb-2">INDOOR GAMES</strong>
+                      <ul className="list-disc list-inside mb-4">
+                        <li>Table Tennis</li>
+                        <li>Carroms</li>
+                        <li>Chess</li>
+                      </ul>
+
+                      <strong className="block text-lg mb-2">GROUP GAMES</strong>
+                      <ul className="list-disc list-inside mb-4">
+                        <li>Cricket</li>
+                        <li>Football</li>
+                        <li>Volleyball</li>
+                        <li>Basketball</li>
+                      </ul>
+                    </div>
+
+                    {/* Column 2 */}
+                    <div>
+                      <strong className="block text-lg mb-2">TRACK EVENTS</strong>
+                      <ul className="list-disc list-inside mb-4">
+                        <li>100m</li>
+                        <li>200m</li>
+                        <li>400m</li>
+                        <li>800m</li>
+                        <li>1500m</li>
+                        <li>4x100m Relay</li>
+                        <li>4x400m Relay</li>
+                      </ul>
+
+                      <strong className="block text-lg mb-2">FIELD EVENTS</strong>
+                      <ul className="list-disc list-inside mb-4">
+                        <li>Long Jump</li>
+                        <li>Discus Throw</li>
+                        <li>Shot Put</li>
+                        <li>Javelin Throw</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
             <Card className="bg-gradient-to-br from-orange-600 to-red-600 border-none hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center text-black font-bold">
-                  <Users className="mr-2" /> Team Building
+                  <Users className="mr-2" /> Staff Events
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-black">Foster teamwork and build lasting relationships with fellow athletes.</p>
+                <div className="text-black">
+                  <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
+                    {/* Column 1 */}
+                    <div>
+                      <strong className="block text-lg mb-2">INDOOR GAMES</strong>
+                      <ul className="list-disc list-inside mb-4">
+                        <li>Table Tennis</li>
+                        <li>Carroms</li>
+                        <li>Chess</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <strong className="block text-lg mb-2">TRACK EVENTS</strong>
+                      <ul className="list-disc list-inside mb-4">
+                        <li>50m</li>
+                      </ul>
+
+                      <strong className="block text-lg mb-2">FIELD EVENTS</strong>
+                      <ul className="list-disc list-inside mb-4">
+                        <li>Discus Throw</li>
+                        <li>Shot Put</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -158,7 +226,7 @@ const HomePage = () => {
 
       {/* Footer */}
       <footer className="bg-yellow-500 py-8 text-center text-black mt-20">
-        <p>&copy; 2024 Pradhva - IIIT Kottayam Annual Sports Fest. All rights reserved.</p>
+        <p>&copy; 2024 Pradhva. All rights reserved.</p>
       </footer>
     </div>
   );
