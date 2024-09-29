@@ -93,25 +93,6 @@ const HomePage = () => {
               <CardContent>
                 <div className="text-black">
                   <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
-                    {/* Column 1 */}
-                    <div>
-                      <strong className="block text-lg mb-2">INDOOR GAMES</strong>
-                      <ul className="list-disc list-inside mb-4">
-                        <li>Table Tennis</li>
-                        <li>Carroms</li>
-                        <li>Chess</li>
-                      </ul>
-
-                      <strong className="block text-lg mb-2">GROUP GAMES</strong>
-                      <ul className="list-disc list-inside mb-4">
-                        <li>Cricket</li>
-                        <li>Football</li>
-                        <li>Volleyball</li>
-                        <li>Basketball</li>
-                      </ul>
-                    </div>
-
-                    {/* Column 2 */}
                     <div>
                       <strong className="block text-lg mb-2">TRACK EVENTS</strong>
                       <ul className="list-disc list-inside mb-4">
@@ -122,6 +103,23 @@ const HomePage = () => {
                         <li>1500m</li>
                         <li>4x100m Relay</li>
                         <li>4x400m Relay</li>
+                      </ul>
+                      <strong className="block text-lg mb-2">INDOOR GAMES</strong>
+                      <ul className="list-disc list-inside mb-4">
+                        <li>Table Tennis</li>
+                        <li>Carroms</li>
+                        <li>Chess</li>
+                      </ul>
+                    </div>
+
+                    {/* Column 2 */}
+                    <div>
+                      <strong className="block text-lg mb-2">GROUP GAMES</strong>
+                      <ul className="list-disc list-inside mb-4">
+                        <li>Cricket</li>
+                        <li>Football</li>
+                        <li>Volleyball</li>
+                        <li>Basketball</li>
                       </ul>
 
                       <strong className="block text-lg mb-2">FIELD EVENTS</strong>
@@ -145,7 +143,6 @@ const HomePage = () => {
               <CardContent>
                 <div className="text-black">
                   <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
-                    {/* Column 1 */}
                     <div>
                       <strong className="block text-lg mb-2">INDOOR GAMES</strong>
                       <ul className="list-disc list-inside mb-4">
@@ -153,14 +150,12 @@ const HomePage = () => {
                         <li>Carroms</li>
                         <li>Chess</li>
                       </ul>
-                    </div>
-
-                    <div>
                       <strong className="block text-lg mb-2">TRACK EVENTS</strong>
                       <ul className="list-disc list-inside mb-4">
                         <li>50m</li>
                       </ul>
-
+                    </div>
+                    <div>
                       <strong className="block text-lg mb-2">FIELD EVENTS</strong>
                       <ul className="list-disc list-inside mb-4">
                         <li>Discus Throw</li>
