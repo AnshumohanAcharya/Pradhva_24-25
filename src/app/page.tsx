@@ -185,7 +185,7 @@ const HomePage = () => {
             <ContactCard
               name="Ms Priya Mol K"
               role="Physical Education Instructor"
-              email="Pet@iiitkottayam.ac.in"
+              email="pet@iiitkottayam.ac.in"
               phone=""
               image="/Priya_pic.jpg"
             />
@@ -203,7 +203,7 @@ const HomePage = () => {
               role="Sportec-Club Mentor"
               email="vyshnavi22bcs133@iiitkottayam.ac.in"
               phone="6366542233"
-              image="/vyshnavi_pic.jpg" // Update image path
+              image="/vyshnavi_pic.jpg"
             />
           </div>
         </section>
