@@ -12,7 +12,7 @@ const sportsData = [
     { name: 'Football', icon: '⚽' },
     { name: 'Throw Ball', icon: '🤾‍♀️' },
     { name: 'Basketball', icon: '🏀' },
-    { name: 'Indoor Games', icon: '♟️' },
+    { name: 'Indoor Games', icon: '🏓' },
 ];
 
 const page = () => {

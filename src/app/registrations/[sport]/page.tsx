@@ -99,7 +99,7 @@ const sportsData: {
         bgImage: '/images/basketball-bg.jpg'
     },
     'Indoor Games': {
-        icon: '🏓♟️🎱',
+        icon: '🏓',
         rules: [
             "Spot registrations are not permitted.",
             "Carrom , Table Tennis matches will be conducted on a knockout basis.",
